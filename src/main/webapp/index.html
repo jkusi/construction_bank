@@ -3,13 +3,36 @@
 <head>
   <title>My Bank</title>
   <link rel="stylesheet" href="look.css">
+  <style>
+    #register {
+      display: inline-block;
+      width: 50%;
+      vertical-align: top;
+    }
+    #promo {
+      display: inline-block;
+      width: 50%;
+      background-image: url('promo.jpg');
+      background-size: cover;
+      color: white;
+      padding: 100px;
+      box-sizing: border-box;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
   <script>
-    function login() {
-      // Get the username and password from the form
-      var username = document.getElementById("username").value;
+    function register() {
+      // Get the user information from the form
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
       var password = document.getElementById("password").value;
-       // Redirect the user to the dashboard page
-       window.location.href = "dashboard.html";
+      var confirmPassword = document.getElementById("confirmPassword").value;
+
+      // TODO: Send the user information to the server to create a new account
+
+      // Redirect the user to the dashboard page
+      window.location.href = "dashboard.html";
     }
   </script>
 </head>
@@ -19,22 +42,29 @@
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
+        <li><a href="about.html">About Us</a></li>
         <li><a href="#">Services</a></li>
         <li><a href="#">Contact Us</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <section id="login">
-      <h2>Login</h2>
+    <section id="register">
+      <h2>Create Account</h2>
       <form>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
-        <input type="button" value="Login" onclick="login()">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+        <input type="button" value="Create Account" onclick="register()">
       </form>
+    </section>
+    <section id="promo">
+      <p>Enjoy free $200 once you sign up. Open a MyBank Total Checking and set up direct deposit.</p>
     </section>
   </main>
   <footer>
