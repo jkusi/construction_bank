@@ -9,10 +9,10 @@
     <h1>Our Services</h1>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="about.php">About Us</a></li>
+        <li><a href="services.php">Services</a></li>
+        <li><a href="contact.php">Contact Us</a></li>
       </ul>
     </nav>
   </header>
@@ -20,16 +20,26 @@
     <section id="services">
       <h2>What We Offer</h2>
       <ul>
-        <li>Accepting deposits: Banks allow customers to deposit money into various types of accounts, such as savings accounts, checking accounts, and certificates of deposit (CDs).</li>
-        <li>Issuing loans: Banks provide loans to customers for various purposes, such as buying a home, starting a business, or financing education.</li>
-        <li>Providing credit cards: Banks issue credit cards to customers, allowing them to make purchases and borrow money.</li>
-        <li>Processing transactions: Banks facilitate the transfer of funds between accounts, both within the same bank and between different banks.</li>
-        <li>Offering investment services: Banks may offer investment products and services, such as mutual funds, stocks, and bonds.</li>
-        <li>Providing insurance: Some banks offer insurance products, such as life insurance and home insurance.</li>
-        <li>Providing financial advice: Banks may provide financial advice to customers on various topics, such as budgeting, saving, and investing.</li>
-        <li>Providing online and mobile banking services: Banks offer online and mobile banking services, allowing customers to manage their accounts, make payments, and access other services through a website or mobile app.</li>
-        <li>Providing foreign exchange services: Banks may provide foreign exchange services, allowing customers to exchange one currency for another.</li>
-        <li>Providing other services: Banks may also offer other services, such as safe deposit boxes, notary services, and cash management services for businesses.</li>
+        <?php
+        // An array of service offerings
+        $services = [
+          "Accepting deposits: Banks allow customers to deposit money into various types of accounts, such as savings accounts, checking accounts, and certificates of deposit (CDs).",
+          "Issuing loans: Banks provide loans to customers for various purposes, such as buying a home, starting a business, or financing education.",
+          "Providing credit cards: Banks issue credit cards to customers, allowing them to make purchases and borrow money.",
+          "Processing transactions: Banks facilitate the transfer of funds between accounts, both within the same bank and between different banks.",
+          "Offering investment services: Banks may offer investment products and services, such as mutual funds, stocks, and bonds.",
+          "Providing insurance: Some banks offer insurance products, such as life insurance and home insurance.",
+          "Providing financial advice: Banks may provide financial advice to customers on various topics, such as budgeting, saving, and investing.",
+          "Providing online and mobile banking services: Banks offer online and mobile banking services, allowing customers to manage their accounts, make payments, and access other services through a website or mobile app.",
+          "Providing foreign exchange services: Banks may provide foreign exchange services, allowing customers to exchange one currency for another.",
+          "Providing other services: Banks may also offer other services, such as safe deposit boxes, notary services, and cash management services for businesses."
+        ];
+
+        // Loop through the services array and output each item as a list item
+        foreach ($services as $service) {
+          echo "<li>$service</li>";
+        }
+        ?>
       </ul>
     </section>
   </main>
