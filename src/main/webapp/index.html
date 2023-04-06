@@ -1,18 +1,3 @@
-<?php
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  // Process the login form
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-
-  // Check if the username and password are valid
-  // ...
-
-  // If the username and password are valid, redirect to dashboard.html
-  header("Location: dashboard.html");
-  exit();
-}
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +21,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   <main>
     <section id="login">
       <h2>Log in to your account</h2>
-      <form method="post">
+      <?php
+      // check if the form has been submitted
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          // check the username and password
+          $username = $_POST['username'];
+          $password = $_POST['password'];
+          // redirect to the dashboard page
+           header('Location: dashboard.html');
+      ?>
+      <form method="POST">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" required>
         <label for="password">Password</label>
