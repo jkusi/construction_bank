@@ -20,26 +20,20 @@
     <section id="services">
       <h2>What We Offer</h2>
       <ul>
-        <?php
-        // An array of service offerings
-        $services = [
+        <?php foreach ([
           "Accepting deposits: Banks allow customers to deposit money into various types of accounts, such as savings accounts, checking accounts, and certificates of deposit (CDs).",
           "Issuing loans: Banks provide loans to customers for various purposes, such as buying a home, starting a business, or financing education.",
           "Providing credit cards: Banks issue credit cards to customers, allowing them to make purchases and borrow money.",
           "Processing transactions: Banks facilitate the transfer of funds between accounts, both within the same bank and between different banks.",
-          "Offering investment services: Banks may offer investment products and services, such as mutual funds, stocks, and bonds.",
-          "Providing insurance: Some banks offer insurance products, such as life insurance and home insurance.",
-          "Providing financial advice: Banks may provide financial advice to customers on various topics, such as budgeting, saving, and investing.",
+          "Offering investment services: Banks  offer investment products and services, such as mutual funds, stocks, and bonds.",
+          "Providing insurance: Banks offer insurance products, such as life insurance and home insurance.",
+          "Providing financial advice: Banks provide financial advice to customers on various topics, such as budgeting, saving, and investing.",
           "Providing online and mobile banking services: Banks offer online and mobile banking services, allowing customers to manage their accounts, make payments, and access other services through a website or mobile app.",
-          "Providing foreign exchange services: Banks may provide foreign exchange services, allowing customers to exchange one currency for another.",
-          "Providing other services: Banks may also offer other services, such as safe deposit boxes, notary services, and cash management services for businesses."
-        ];
-
-        // Loop through the services array and output each item as a list item
-        foreach ($services as $service) {
-          echo "<li>$service</li>";
-        }
-        ?>
+          "Providing foreign exchange services: Banks  provide foreign exchange services, allowing customers to exchange one currency for another.",
+          "Providing other services: Banks  also offer other services, such as safe deposit boxes, notary services, and cash management services for businesses."
+        ] as $service) { ?>
+          <li><?php echo $service ?></li>
+        <?php } ?>
       </ul>
     </section>
   </main>
@@ -48,4 +42,24 @@
   </footer>
 </body>
 </html>
+
+/* CSS */
+
+#services {
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+#services h2 {
+  margin-top: 0;
+}
+
+#services ul {
+  list-style: none;
+  padding: 0;
+}
+
+#services li {
+  margin-bottom: 10px;
+}
 
