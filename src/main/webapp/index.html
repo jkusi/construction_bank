@@ -1,130 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Bank</title>
-    <link rel="stylesheet" href="look.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      $(document).ready(function(){
-        $('nav ul li a').click(function(e){
-          e.preventDefault();
-          $('nav ul li a').removeClass('active');
-          $(this).addClass('active');
-          var href = $(this).attr('href');
-          $('html, body').animate({
-            scrollTop: $(href).offset().top
-          }, 800);
-        });
-      });
-
-      function login() {
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-        if(username == "" || password == ""){
-          alert("Please enter username and password.");
-        }else{
-          window.location.href = "dashboard.html";
-        }
-      }
-    </script>
-    <style>
-      header{
-        background-color: #3f51b5;
-        color: #fff;
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      nav ul{
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-      }
-
-      nav ul li{
-        margin: 0 10px;
-      }
-
-      nav ul li a{
-        color: #fff;
-        text-decoration: none;
-        padding: 10px;
-        border-radius: 5px;
-      }
-
-      nav ul li a:hover{
-        background-color: #fff;
-        color: #3f51b5;
-      }
-
-      nav ul li a.active{
-        background-color: #fff;
-        color: #3f51b5;
-      }
-
-      main{
-        padding: 50px;
-      }
-
-      #login form{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #login label{
-        margin-bottom: 10px;
-        font-weight: bold;
-      }
-
-      #login input[type="text"],
-      #login input[type="password"]{
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        margin-bottom: 20px;
-        width: 100%;
-      }
-
-      #login input[type="button"]{
-        background-color: #3f51b5;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        cursor: pointer;
-      }
-
-      #login input[type="button"]:hover{
-        background-color: #fff;
-        color: #3f51b5;
-      }
-
-      footer{
-        background-color: #ddd;
-        color: #333;
-        padding: 20px;
-        text-align: center;
-      }
-    </style>
+    <title>Bank Name - Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <header>
-      <h1>Welcome to My Bank</h1>
       <nav>
         <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <section id="login">
-        <h2>Login
+      <h1>Welcome to Bank Name</h1>
+      <p>Here at Bank Name, we strive to provide our customers with the best possible banking experience.</p>
+      <p>From personal banking to business banking, we have you covered.</p>
+    </main>
+    <footer>
+      <p>Copyright © 2023 Bank Name.
+    </footer>
+  </body>
+</html>
 
