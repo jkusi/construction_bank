@@ -15,6 +15,11 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <properties>
+	  <sonar.host.url>http://3.140.246.218:9000/</sonar.host.url>
+	  <sonar.login>656bc0f54d1e5b5f780ccad4362aaee1524f9c98</sonar.login>
+
+  </properties>s
   <build>
     <finalName>ContructionBank</finalName>
   </build>
