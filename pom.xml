@@ -20,13 +20,31 @@
 	  <sonar.login>656bc0f54d1e5b5f780ccad4362aaee1524f9c98</sonar.login>
 
   </properties>
+
   <repositories>
-		<repository>
-			<id>nexus</id>
-			<name>Nexus proxy repo</name>
-			<url>http://18.216.164.147:8081/jkusi/repository/motivation-proxy/</url>
-		</repository>
+        <repository>
+                <id>nexus</id>
+                <name>Nexus proxy repo</name>
+                <url>http://18.220.135.197:8081/jkusi/repository/construction_maven_proxy/</url>
+        </repository>
   </repositories>
+
+
+  <distributionManagement>
+          <repository>
+                  <id>nexus</id>
+                  <name>Construction Bank Releases </name>
+                 <url>http://18.220.135.197:8081/jkusi/repository/construction_release/</url>
+         </repository>
+
+          <snapshotRepository>
+                  <id>nexus</id>
+                  <name>Contruction Bank Snapshot </name>
+                  <url>http://18.220.135.197:8081/jkusi/repository/construction_snapshot/</url>
+          </snapshotRepository>
+
+  </distributionManagement>
+
   <build>
     <finalName>ContructionBank</finalName>
   </build>
