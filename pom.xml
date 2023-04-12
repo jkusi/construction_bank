@@ -16,6 +16,6 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>Contruction_Bank</finalName>
+    <finalName>ContructionBank</finalName>
   </build>
 </project>
