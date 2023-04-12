@@ -5,7 +5,7 @@
   <artifactId>my-bankapp</artifactId>
   <packaging>war</packaging>
   <version>2.0-SNAPSHOT</version>
-  <name>my-bankapp Maven Webapp</name>
+  <name>Contruction_Bank</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
