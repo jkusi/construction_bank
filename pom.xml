@@ -16,7 +16,7 @@
     </dependency>
   </dependencies>
   <properties>
-	  <sonar.host.url>http://3.140.246.218:9000/</sonar.host.url>
+	  <sonar.host.url>http://18.218.98.147:9000/</sonar.host.url>
 	  <sonar.login>656bc0f54d1e5b5f780ccad4362aaee1524f9c98</sonar.login>
 
   </properties>
@@ -25,7 +25,7 @@
         <repository>
                 <id>nexus</id>
                 <name>Nexus proxy repo</name>
-                <url>http://18.220.135.197:8081/jkusi/repository/construction_maven_proxy/</url>
+                <url>http://18.118.21.103:8081/jkusi/repository/construction_maven_proxy/</url>
         </repository>
   </repositories>
 
@@ -34,13 +34,13 @@
           <repository>
                   <id>nexus</id>
                   <name>Construction Bank Releases </name>
-                 <url>http://18.220.135.197:8081/jkusi/repository/construction_release/</url>
+                 <url>http://18.118.21.103:8081/jkusi/repository/construction_release/</url>
          </repository>
 
           <snapshotRepository>
                   <id>nexus</id>
                   <name>Contruction Bank Snapshot </name>
-                  <url>http://18.220.135.197:8081/jkusi/repository/construction_snapshot/</url>
+                  <url>http://18.118.21.103:8081/jkusi/repository/construction_snapshot/</url>
           </snapshotRepository>
 
   </distributionManagement>
