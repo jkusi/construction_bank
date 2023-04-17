@@ -9,6 +9,9 @@ node{
 		git credentialsId: 'creditGITHUB', url: 'https://github.com/jkusi/construction_bank'
 	
 	}
+	stage('0.Dependecy check'){
+		dependencyCheck additionalArguments: '--format HTML', odcInstallation: 'owasp'
+	}
 
 	stage('2.Maven Build'){
 		sh "${mavenHome}/bin/mvn clean package"	
