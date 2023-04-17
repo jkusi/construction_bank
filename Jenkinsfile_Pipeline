@@ -26,7 +26,7 @@ node{
 
 	}
 	stage('5.Deploy to test enviroment or UAT(user acceptance testing) '){
-		deploy adapters: [tomcat9(credentialsId: 'tomcatcredt', path: '', url: 'http://3.138.137.89:8080/')], contextPath: null, war: 'target/*.war'	
+		deploy adapters: [tomcat9(credentialsId: 'tomcatcredt', path: '', url: 'http://18.118.7.219:8080/')], contextPath: null, war: 'target/*.war'	
 
 	}
 	stage('6.ManualApproval'){
@@ -36,7 +36,7 @@ node{
 		}
 	}
 	stage('7.Deploy to Production '){
-		deploy adapters: [tomcat9(credentialsId: 'tomcatcredt', path: '', url: 'http://3.138.137.89:8080/')], contextPath: null, war: 'target/*.war'	
+		deploy adapters: [tomcat9(credentialsId: 'tomcatcredt', path: '', url: 'http://18.118.7.219:8080/')], contextPath: null, war: 'target/*.war'	
 
 	}
 	stage('9.Email Notification'){
