@@ -19,7 +19,7 @@ pipeline {
 		stage('Docker Build and Push') {
 	      steps {
 	          sh 'printenv'
-	          sh 'docker build -t carmichaelc09/bank-app:""$GIT_COMMIT"" .'
+	          sh 'docker build -t carmichaelc09/bank-app:v1'
 	      }
 	    }
 
