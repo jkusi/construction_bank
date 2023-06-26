@@ -1,52 +1,21 @@
-/* Building maven website and deploying it.
-In stage 1. to clone a private repo, you have to use the Pipeline Syntax and choose gitHub.
-In stage 5. to deploy to testing env, you have to use the pipline syntax and choose deploy war/ear to a container
-*/
+pipeline {
+	agent any
 
-node{
-	def mavenHome = tool name: 'Maven 3.9.1'
-	stage('1.Private codeClone'){
-		git credentialsId: 'creditGITHUB', url: 'https://github.com/jkusi/construction_bank'
-	
-	}
-	stage('0.Dependecy check'){
-		dependencyCheck additionalArguments: '--format HTML', odcInstallation: 'owasp'
-	}
+	stages {
+		stage('Build Artifact') {
+			steps{
+				sh "mvn clean package -DskipTests=true"
+				archive 'target/*.war'
+			}
 
-	stage('2.Maven Build'){
-		sh "${mavenHome}/bin/mvn clean package"	
-	
-	}
-	stage('3. CodeQuality using Sonaqube'){
-		sh "${mavenHome}/bin/mvn sonar:sonar"	
+		}	
+	stage('Unit Tests') {
+			steps{
+				sh "mvn test"
+			}
+
+		}	
 
 	}
-	stage('4.Upload Nexus Artifacts'){
-		sh "${mavenHome}/bin/mvn deploy"	
 
-	}
-	stage('5.Deploy to test enviroment or UAT(user acceptance testing) '){
-		deploy adapters: [tomcat9(credentialsId: 'tomcatcredt', path: '', url: 'http://18.118.7.219:8080/')], contextPath: null, war: 'target/*.war'	
-
-	}
-	stage('6.ManualApproval'){
-	sh "echo 'Ready for review' "
-	timeout(time:5, unit: 'HOURS'){
-	input message: 'Application ready for deployment, Please Let the client review and aprove'
-		}
-	}
-	stage('7.Deploy to Production '){
-		deploy adapters: [tomcat9(credentialsId: 'tomcatcredt', path: '', url: 'http://18.118.7.219:8080/')], contextPath: null, war: 'target/*.war'	
-
-	}
-	stage('9.Email Notification'){
-	emailext body: '''Hello Team,
-
-The build is done. Thank you all for your contribution.
-
-DevOpsCyber''', subject: 'Build is Done', to: 'carmichaelc09@gmail.com'
 }
-	
-}
-
-
