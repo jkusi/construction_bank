@@ -19,8 +19,8 @@ pipeline {
 		stage('Docker Build and Push') {
 	      steps {
 	          sh 'printenv'
-	          sh 'sudo docker build -t carmichaelc09/bank-app:v1 .'
-		  sh 'sudo docker push carmichaelc09/bank-app:v1'    
+	          sh 'docker build -t carmichaelc09/bank-app:v1 .'
+		  sh 'docker push carmichaelc09/bank-app:v1'    
 	      }
 	    }
 
