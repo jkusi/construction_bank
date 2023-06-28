@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bankApp
+  name: bankapp
   labels:
     app: bank
 spec:
@@ -11,12 +11,12 @@ spec:
       app: bank
   template:
     metadata:
-      name: bankApp
+      name: bankapp
       labels:
         app: bank
     spec:
       containers:
-      - name: bankApp
+      - name: bankapp
         image: carmicahelc09/bank:v1
         ports: 
         - containerPort: 8080
