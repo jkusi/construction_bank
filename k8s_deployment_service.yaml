@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bankapp
+  name: bankapp_v2
   labels:
-    app: bank
+    app: bank_2
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: bank
+      app: bank_2
   template:
     metadata:
-      name: bankapp
+      name: bankapp_v2
       labels:
-        app: bank
+        app: bank_2
     spec:
       containers:
-      - name: bankapp
+      - name: bankapp_v2
         image: carmichaelc09/bank-app:v2
         ports:
         - containerPort: 8080
@@ -25,10 +25,10 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: bank
+  name: bank_v2
 spec:
   selector:
-    app: bank
+    app: bank_2
   type: NodePort
   ports:
   - port: 80

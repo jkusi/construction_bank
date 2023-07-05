@@ -20,8 +20,8 @@ pipeline {
 	      steps {
 	        withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
 	          sh 'printenv'
-	          sh 'docker build -t carmichaelc09/bank-app:v1 .'
-	          sh 'docker push carmichaelc09/bank-app:v1'
+	          sh 'docker build -t carmichaelc09/bank-app:v2 .'
+	          sh 'docker push carmichaelc09/bank-app:v2'
 	        }
 	      }
 	    }
