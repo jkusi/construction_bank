@@ -17,8 +17,8 @@ spec:
     spec:
       containers:
       - name: bankapp
-        image: carmichaelc09/bank-app:v1
-        ports: 
+        image: carmichaelc09/bank-app:v2
+        ports:
         - containerPort: 8080
 ---
 #creating a service for this deployment
@@ -33,4 +33,4 @@ spec:
   ports:
   - port: 80
     targetPort: 8080
-    nodePort: 31000
+    #nodePort: 31000
