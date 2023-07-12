@@ -20,11 +20,21 @@ pipeline {
 	      steps {
 	        withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
 	          sh 'printenv'
-	          sh 'docker build -t carmichaelc09/bank-app:v2 .'
-	          sh 'docker push carmichaelc09/bank-app:v2'
+	          sh 'docker build -t carmichaelc09/bank-app:v3 .'
+	          sh 'docker push carmichaelc09/bank-app:v3'
 	        }
 	      }
 	    }
+		stage('Mutation Tests - PIT') {
+		steps {
+			sh "mvn org.pitest:pitest-maven:mutationCoverage"
+		}
+		post {
+			always {
+				pitmutation mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
+				}
+			}
+		}
 
 	    stage('Kubernetes Deployment - DEV') {
 	      steps {

@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: bankapp
-        image: carmichaelc09/bank-app:v2
+        image: carmichaelc09/bank-app:v3
         ports:
         - containerPort: 8080
 ---
@@ -25,7 +25,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: bank
+  name: bankv3
 spec:
   selector:
     app: bank
