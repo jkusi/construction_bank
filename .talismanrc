@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: pom.xml
+  checksum: 3ace8af5b6edd0a394daffc8973de88739c07d476d0e7d5caf7b2c3e627eee16
+version: ""
