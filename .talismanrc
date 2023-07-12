@@ -2,3 +2,9 @@ fileignoreconfig:
 - filename: pom.xml
   checksum: 3ace8af5b6edd0a394daffc8973de88739c07d476d0e7d5caf7b2c3e627eee16
 version: ""
+fileignoreconfig:
+- filename: pom.xml
+  checksum: 726aebec040a4545e2158d04e95cc84314eeb3becf3c67edb0175690261f181d
+- filename: src/main/webapp/index.html
+  checksum: 6633abd9f329705fd6fe7277b071e3513c68dc5da76a2622cb71350051f4fbd9
+version: ""
