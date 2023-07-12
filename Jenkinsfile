@@ -30,7 +30,14 @@ pipeline {
 			}
 			post {
 				always {
-					step([$class: 'PitPublisher', mutationStatsFile: 'target/pit-reports/mutations.xml'])
+					script {
+						def reports = findFiles(glob: 'target/pit-reports/mutations.xml')
+						if (reports.length > 0) {
+							step([$class: 'PitPublisher', mutationStatsFile: reports[0].path])
+						} else {
+							error('No PIT reports found')
+						}
+					}
 				}
 			}
 		}
