@@ -3,13 +3,13 @@ pipeline {
 
 	stages {
 		stage('Build Artifact') {
-			steps{
+			steps {
 				sh "mvn clean package "
 				archive 'target/*.war'
 			}
 		}	
 		stage('Unit Tests') {
-			steps{
+			steps {
 				sh "mvn test"
 			}
 		}
@@ -30,7 +30,7 @@ pipeline {
 			}
 			post {
 				always {
-					step([$class: 'PitPublisher', mutationStatsFile: '**/target/pit-reports/**/mutations.xml'])
+					step([$class: 'PitPublisher', mutationStatsFile: 'target/pit-reports/mutations.xml'])
 				}
 			}
 		}
