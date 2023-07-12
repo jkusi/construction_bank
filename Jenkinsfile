@@ -31,7 +31,7 @@ pipeline {
 			post {
 				always {
 					script {
-						def reports = findFiles(glob: 'target/pit-reports/mutations.xml')
+						def reports = findFilesByGlob('**/target/pit-reports/mutations.xml')
 						if (reports.length > 0) {
 							step([$class: 'PitPublisher', mutationStatsFile: reports[0].path])
 						} else {
@@ -51,3 +51,4 @@ pipeline {
 		}
 	}
 }
+
