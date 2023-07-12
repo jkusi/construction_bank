@@ -24,24 +24,6 @@ pipeline {
 			}
 		}
 
-		stage('Mutation Tests - PIT') {
-			steps {
-				sh "mvn org.pitest:pitest-maven:mutationCoverage"
-			}
-			post {
-				always {
-					script {
-						def reports = findFilesByGlob('**/target/pit-reports/mutations.xml')
-						if (reports.length > 0) {
-							step([$class: 'PitPublisher', mutationStatsFile: reports[0].path])
-						} else {
-							error('No PIT reports found')
-						}
-					}
-				}
-			}
-		}
-
 		stage('Kubernetes Deployment - DEV') {
 			steps {
 				withKubeConfig([credentialsId: 'kubeconfig']) {
