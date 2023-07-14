@@ -8,29 +8,37 @@ pipeline {
 				archive 'target/*.war'
 			}
 		}	
-		// stage('Unit Tests') {
-		// 	steps {
-		// 		sh "mvn test"
-		// 	}
-		// }
+		stage('Unit Tests') {
+			steps {
+				sh "mvn test"
+			}
+		}
 
-		// stage('Docker Build and Push') {
-		// 	steps {
-		// 		withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
-		// 			sh 'printenv'
-		// 			sh 'docker build -t carmichaelc09/bank-app:v3 .'
-		// 			sh 'docker push carmichaelc09/bank-app:v3'
-		// 		}
-		// 	}
-		// }
+		stage('SonarQube - SAST') {
+			steps {
+				sh "mvn sonar:sonar -Dsonar.projectKey=bank -Dsonar.host.url=http://192.168.50.20:9000/ -Dsonar.login=sqp_1dbca0d15841424b4b43aa70e99cdad3385077b9"
+			}
+		}
 
-		// stage('Kubernetes Deployment - DEV') {
-		// 	steps {
-		// 		withKubeConfig([credentialsId: 'kubeconfig']) {
-		// 			sh "kubectl apply -f k8s_deployment_service.yaml"
-		// 		}
-		// 	}
-		// }
+		stage('Docker Build and Push') {
+			steps {
+				withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
+					sh 'printenv'
+					sh 'docker build -t carmichaelc09/bank-app:""GIT_COMMIT"" .'
+					sh 'docker push carmichaelc09/bank-app:""$GIT_COMMIT""'
+				}
+			}
+		}
+
+
+		stage('Kubernetes Deployment - DEV') {
+			steps {
+				withKubeConfig([credentialsId: 'kubeconfig']) {
+					sh "sed -i 's#replace#carmichaelc09/bank-app:${GIT_COMMIT}#g'k8s_deployment_service.yaml"
+					sh "kubectl apply -f k8s_deployment_service.yaml"
+				}
+			}
+		}
 	}
 }
 
