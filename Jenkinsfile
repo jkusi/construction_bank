@@ -16,7 +16,7 @@ pipeline {
 
 		stage('SonarQube - SAST') {
 			steps {
-				sh "mvn clean verify sonar:sonar -Dsonar.projectKey=bank -Dsonar.projectName='bank' -Dsonar.host.url=http://192.168.50.20:9000 -Dsonar.token=sqp_0bfca971b7e00969692bf238a580ffd070d2d3a7"
+				sh "mvn clean verify sonar:sonar"
 			}
 		}
 
