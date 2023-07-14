@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: bankapp
-        image: carmichaelc09/bank-app:v3
+        image: carmichaelc09/bank-app:v4
         ports:
         - containerPort: 8080
 ---
