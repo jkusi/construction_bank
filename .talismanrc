@@ -1,22 +1,4 @@
 fileignoreconfig:
-- filename: pom.xml
-  checksum: 3ace8af5b6edd0a394daffc8973de88739c07d476d0e7d5caf7b2c3e627eee16
-version: ""
-fileignoreconfig:
-- filename: pom.xml
-  checksum: 726aebec040a4545e2158d04e95cc84314eeb3becf3c67edb0175690261f181d
-- filename: src/main/webapp/index.html
-  checksum: 6633abd9f329705fd6fe7277b071e3513c68dc5da76a2622cb71350051f4fbd9
-version: ""
-fileignoreconfig:
 - filename: Jenkinsfile
-  checksum: 012ad62c24811a2d555843a493fe876316f5654bffc08c245f64ccaa242f54cc
-version: ""
-fileignoreconfig:
-- filename: Jenkinsfile
-  checksum: db473fad34ada330e7b5445862875216f34dffeaea8e8262841f515c4c45095c
-version: ""
-fileignoreconfig:
-- filename: Jenkinsfile
-  checksum: da78228774686a54b3ccc7a0b4e7d0770cbe3c88764f952d1cb2b0df55355f93
+  checksum: b6b763aaaeac67be12309249d5659b16146eecb1a4a353fe96f7a8a5d18db73a
 version: ""
