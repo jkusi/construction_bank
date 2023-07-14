@@ -5,32 +5,33 @@
   <link rel="stylesheet" href="look.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+      font-family: Roboto, sans-serif;
+      background-color: #fff;
     }
     header {
-      background-color: #333;
-      padding: 20px;
+      background-color: #0088cc;
       color: #fff;
-      text-align: center;
+      padding: 10px;
     }
     h1 {
       margin: 0;
       font-size: 30px;
     }
     nav ul {
-      list-style-type: none;
-      padding: 0;
+      list-style: none;
       margin: 0;
-      text-align: center;
+      padding: 0;
     }
-    nav ul li {
+    nav li {
       display: inline-block;
-      margin: 0 10px;
+      margin-right: 20px;
     }
-    nav ul li a {
+    nav a {
       color: #fff;
       text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     main {
       max-width: 400px;
@@ -57,7 +58,7 @@
       margin-bottom: 15px;
     }
     input[type="button"] {
-      background-color: #333;
+      background-color: #0088cc;
       color: #fff;
       padding: 10px 20px;
       border: none;
@@ -65,8 +66,8 @@
       cursor: pointer;
     }
     footer {
-      background-color: #333;
-      color: #fff;
+      background-color: #ccc;
+      color: #333;
       padding: 10px;
       text-align: center;
     }
@@ -74,20 +75,10 @@
       margin: 0;
     }
   </style>
-  <script>
-    function login() {
-      // Get the username and password from the form
-      var username = document.getElementById("username").value;
-      var password = document.getElementById("password").value;
-
-      // Redirect the user to the dashboard page
-      window.location.href = "dashboard.html";
-    }
-  </script>
 </head>
 <body>
   <header>
-    <h1>Welcome to My Bank</h1>
+    <h1>My Bank</h1>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -98,18 +89,17 @@
   </header>
   <main>
     <section id="login">
-      <h2>Login</h2>
+      <h2>Log in</h2>
       <form>
         <label for="username">Username</label>
         <input type="text" id="username" name="username" required>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
-        <input type="button" value="Login" onclick="login()">
+        <input type="button" value="Log in" onclick="login()">
       </form>
     </section>
   </main>
   <footer>
     <p>&copy; 2023 My Bank. All rights reserved.</p>
   </footer>
-</body>
-</html>
+</body
