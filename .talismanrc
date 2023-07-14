@@ -1,14 +1,4 @@
 fileignoreconfig:
-- filename: Jenkinsfile
-  checksum: b6b763aaaeac67be12309249d5659b16146eecb1a4a353fe96f7a8a5d18db73a
-version: ""
-fileignoreconfig:
-- filename: Jenkinsfile
-  checksum: 81d11ba721d123420b43942ca6aa4483d85cce2cd04f868e56882eed72909b2c
-version: ""
-fileignoreconfig:
 - filename: src/main/webapp/index.html
-  checksum: 24e3bcc6929af3a839b59a1fe0930529f27ef166caaa30b18e9270c37439959e
-- filename: Jenkinsfile
-  checksum: b9a1295b3e92f78abaf28991f509984e86e4f7ad54c3ebd9c98e34b4be8d21cf
+  checksum: 6633abd9f329705fd6fe7277b071e3513c68dc5da76a2622cb71350051f4fbd9
 version: ""
