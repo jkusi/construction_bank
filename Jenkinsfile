@@ -27,14 +27,15 @@ pipeline {
 			steps {
 				withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
 					sh 'printenv'
-					sh 'docker build -t carmichaelc09/bank-app:v3 .'
-					sh 'docker push carmichaelc09/bank-app:v3'
+					sh 'docker build -t carmichaelc09/bank-app:""$GIT_COMMIT"" .'
+					sh 'docker push carmichaelc09/bank-app:""$GIT_COMMIT""'
 				}
 			}
 		}
 		stage('Kubernetes Deployment - DEV') {
 			steps {
 				withKubeConfig([credentialsId: 'kubeconfig']) {
+					sh "sed -i 's#replace#carmichaelc09/bank-app:${GIT_COMMIT}#g' k8s_deployment_service.yaml"
 					sh "kubectl apply -f k8s_deployment_service.yaml"
 				}
 			}
