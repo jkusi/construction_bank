@@ -8,3 +8,7 @@ fileignoreconfig:
 - filename: src/main/webapp/index.html
   checksum: 6633abd9f329705fd6fe7277b071e3513c68dc5da76a2622cb71350051f4fbd9
 version: ""
+fileignoreconfig:
+- filename: Jenkinsfile
+  checksum: 012ad62c24811a2d555843a493fe876316f5654bffc08c245f64ccaa242f54cc
+version: ""
