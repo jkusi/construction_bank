@@ -15,11 +15,11 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
- <properties>
+  <!--<properties>
 	  <sonar.host.url>http://192.168.50.20:9000/</sonar.host.url>
-	  <sonar.login>sqp_1dbca0d15841424b4b43aa70e99cdad3385077b9</sonar.login>
+	  <sonar.login></sonar.login
 
-  </properties> 
+  </properties> -->
 
  <!-- <repositories>
         <repository>
