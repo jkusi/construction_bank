@@ -21,11 +21,10 @@
     </dependency>
 
   </dependencies>
-  <!--<properties>
+  <properties>
 	  <sonar.host.url>http://192.168.50.20:9000/</sonar.host.url>
-	  <sonar.login></sonar.login
-
-  </properties> -->
+	  <sonar.login>sqa_44d6d0d0d3904bfe679cfd32f918c7889e38d406</sonar.login>
+  </properties> 
 
  <!-- <repositories>
         <repository>

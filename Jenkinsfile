@@ -17,7 +17,8 @@ pipeline {
 		stage('SonarQube - SAST') {
 			steps {
 				withSonarQubeEnv('SonarQube') {
-				sh "mvn sonar:sonar -Dsonar.projectKey=bank -Dsonar.projectName='bank' -Dsonar.host.url=https://7675-65-24-213-8.ngrok-free.app/"
+				sh "mvn sonar:sonar"
+				//sh "mvn sonar:sonar -Dsonar.projectKey=bank -Dsonar.projectName='bank' -Dsonar.host.url=https://7675-65-24-213-8.ngrok-free.app/"
 				}
 			}
 
