@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example</groupId>
-  <artifactId>my-bankapp</artifactId>
+  <artifactId>my-bank</artifactId>
   <packaging>war</packaging>
-  <version>2.0-SNAPSHOT</version>
-  <name>Contruction_Bank</name>
+  <version>1.0-SNAPSHOT</version>
+  <name>my-bank Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
@@ -19,79 +19,29 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.28</version>
     </dependency>
-
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
   <properties>
 	  <sonar.host.url>http://192.168.50.20:9000/</sonar.host.url>
 	  <sonar.login>sqa_44d6d0d0d3904bfe679cfd32f918c7889e38d406</sonar.login>
-  </properties> 
-
- <!-- <repositories>
-        <repository>
-                <id>nexus</id>
-                <name>Nexus proxy repo</name>
-                <url>http://18.118.21.103:8081/jkusi/repository/construction_maven_proxy/</url>
-        </repository>
-  </repositories>
-
-
-  <distributionManagement>
-          <repository>
-                  <id>nexus</id>
-                  <name>Construction Bank Releases </name>
-                 <url>http://18.118.21.103:8081/jkusi/repository/construction_release/</url>
-         </repository>
-
-          <snapshotRepository>
-                  <id>nexus</id>
-                  <name>Contruction Bank Snapshot </name>
-                  <url>http://18.118.21.103:8081/jkusi/repository/construction_snapshot/</url>
-          </snapshotRepository>
-
-  </distributionManagement> -->
-
+  </properties>
   <build>
-	<plugins>
-		<plugin>
-		   <groupId>org.jacoco</groupId>
-		   <artifactId>jacoco-maven-plugin</artifactId>
-		   <version>0.8.5</version>
-		   <executions>
-		      <execution>
-		         <goals>
-		            <goal>prepare-agent</goal>
-		         </goals>
-		      </execution>
-		      <execution>
-		         <id>report</id>
-		         <phase>test</phase>
-		         <goals>
-		            <goal>report</goal>
-		         </goals>
-		      </execution>
-		   </executions>
-		</plugin>
+    <plugins>
       <plugin>
-            <groupId>org.pitest</groupId>
-            <artifactId>pitest-maven</artifactId>
-            <version>1.5.0</version>
-            <dependencies>
-               <dependency>
-                  <groupId>org.pitest</groupId>
-                  <artifactId>pitest-junit5-plugin</artifactId>
-                  <version>0.12</version>
-               </dependency>
-            </dependencies>
-            <configuration>
-               <mutationThreshold>70</mutationThreshold>
-               <outputFormats>
-                  <outputFormat>XML</outputFormat>
-                  <outputFormat>HTML</outputFormat>
-               </outputFormats>
-            </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
       </plugin>
-				
-	</plugins>
-    <finalName>ContructionBank</finalName>		
+    </plugins>
+    <finalName>my-bank</finalName>
   </build>
 </project>
