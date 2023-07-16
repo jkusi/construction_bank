@@ -1,10 +1,4 @@
 fileignoreconfig:
 - filename: Jenkinsfile
-  checksum: 5dd50a83f1777019f89bafccf3fdda83a03b9d66ca4cdfc7df4961fb35dbddac
-version: ""
-fileignoreconfig:
-- filename: pom.xml
-  checksum: 0afb0092c2b729959305f7fe88a9dff404e04cbf76de790069bb5562e412459b
-- filename: Jenkinsfile
-  checksum: a19eea3108cdac1bd840cf9af64ff6ae0b5cd5951890cfa1ff7c3b8178cccdca
+  checksum: 50c8f6415fdc6d404527e1e7f8d1c081355470a1d2e52990be1cc44098c3270f
 version: ""
