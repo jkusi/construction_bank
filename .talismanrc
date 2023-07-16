@@ -2,7 +2,3 @@ fileignoreconfig:
 - filename: src/main/java/com/example/mybank/LoginServlet.java
   checksum: c11a873a4864e1e542b16d0a254946a8509628b0b8003b5ebda7717860df744a
 version: ""
-fileignoreconfig:
-- filename: src/main/webapp/index.html
-  checksum: 963d2712bf63dd8296684ca103b2eefe3cfc7de3ebbda4756172e86dc938bd0e
-version: ""
