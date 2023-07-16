@@ -2,3 +2,7 @@ fileignoreconfig:
 - filename: Jenkinsfile
   checksum: 50c8f6415fdc6d404527e1e7f8d1c081355470a1d2e52990be1cc44098c3270f
 version: ""
+fileignoreconfig:
+- filename: src/main/webapp/login.php
+  checksum: 4667e950e630c979c8cad32838e9e905c288a9c7f13fa3e2cddcf4a76056d3b1
+version: ""
