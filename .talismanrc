@@ -6,3 +6,9 @@ fileignoreconfig:
 - filename: Jenkinsfile
   checksum: 46692455598ac49b9af8424b013af7e12da903389799c99f4ca297d9a1345aac
 version: ""
+fileignoreconfig:
+- filename: src/main/webapp/login.php
+  checksum: 50386662a66d966d4f64a4b4b91f38cbf25480520a260e15858d3307b52738f9
+- filename: src/main/webapp/index.html
+  checksum: 043fb51808df6939128a654b079af5ea4eaf7a935a2bf9094d172c791fd5b76b
+version: ""
