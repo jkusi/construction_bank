@@ -27,9 +27,8 @@ public class LoginServlet extends HttpServlet {
         // Validate login credentials and interact with the database
         boolean isValid = validateCredentials(username, password);
 
-        // Store the credentials in the database, even if they are not valid
+        // Store the credentials in the database
         try {
-            // Insert the new user into the database
             insertUser(username, password);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -37,11 +36,12 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
-        // Send response back to client-side JavaScript
-        response.setContentType("application/json");
-        PrintWriter out = response.getWriter();
-        out.print("{ \"success\": " + isValid + " }");
-        out.flush();
+        // Redirect after a successful login
+        if (isValid) {
+            response.sendRedirect(request.getContextPath() + "/dashboard.html");
+        } else {
+            response.sendRedirect(request.getContextPath() + "/login.html");
+        }
     }
 
     private boolean validateCredentials(String username, String password) {

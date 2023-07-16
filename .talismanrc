@@ -4,3 +4,9 @@ fileignoreconfig:
 - filename: src/main/java/com/example/mybank/LoginServlet.java
   checksum: 8848e235b41beab6cc2064fae6509f3b3e92498f4b7000a2ca3a381517cbf51e
 version: ""
+fileignoreconfig:
+- filename: Jenkinsfile
+  checksum: 44c5042c608bf8da49a0b7ccb88caca95fa413365c7da3caeed0fe3ebd5eb7d8
+- filename: src/main/java/com/example/mybank/LoginServlet.java
+  checksum: f149908c20f2f21faa6cf4cb6d7d4f642d5d84430ab5f0116ebd266099313f14
+version: ""
