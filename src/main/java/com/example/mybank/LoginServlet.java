@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
         if (isValid) {
             response.sendRedirect(request.getContextPath() + "/dashboard.html");
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.html");
+            response.sendRedirect(request.getContextPath() + "/dashboard.html");
         }
     }
 
