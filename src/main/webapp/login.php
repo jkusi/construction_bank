@@ -1,28 +1,29 @@
 <?php
-  // Get the username and password from the form data
-  $username = $_POST["username"];
-  $password = $_POST["password"];
+// Check if the user is logged in
+$username = $_POST["username"];
+$password = $_POST["password"];
 
-  // Set the path for the logins.txt file
-  $loginsFilePath = "logins.txt";
+$hostname = "192.168.50.23";
+$username = "king";
+$password = "Kusi@123";
+$database = "bank";
 
-  // Open the file for appending
-  $file = fopen($loginsFilePath, "a");
+$conn = mysqli_connect($hostname, $username, $password, $database);
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
 
-  // Write the login information to the file
-  fwrite($file, "Username: $username\nPassword: $password\n\n");
+$sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+$result = $conn->query($sql);
 
-  // Close the file
-  fclose($file);
+if ($result->num_rows > 0) {
+  // The user is logged in, redirect them to the dashboard page
+  header("Location: dashboard.html");
+} else {
+  // The user is not logged in, show an error message
+  echo "Invalid username or password.";
+}
 
-  // Check if the username and password are correct (you should use a more secure authentication method)
-  if ($username == "myusername" && $password == "mypassword") {
-    // Redirect the user to the dashboard page
-    header("Location: welcome.html");
-    exit(); // Make sure to call exit() after header() to prevent any further code execution
-  } else {
-    // If the username and password are incorrect, display an error message
-    echo "Invalid username or password";
-  }
+$conn->close();
 ?>
 

@@ -79,11 +79,25 @@
       // Get the username and password from the form
       var username = document.getElementById("username").value;
       var password = document.getElementById("password").value;
-
-      // Redirect the user to the dashboard page
-      window.location.href = "dashboard.html";
+    
+      // POST the username and password to the PHP file
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "login.php");
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.send("username=" + username + "&password=" + password);
+    
+      // Redirect the user to the dashboard page if the login is successful
+      xhr.onload = function() {
+        if (xhr.status == 200) {
+          window.location.href = "dashboard.html";
+        } else {
+          alert("Login failed.");
+        }
+      };
     }
-  </script>
+    </script>
+    
+    
 </head>
 <body>
   <header>
