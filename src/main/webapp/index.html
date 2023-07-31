@@ -76,47 +76,41 @@
   </style>
   <script>
     function login() {
-      // Get the username and password from the form
-      var username = document.getElementById("username").value;
-      var password = document.getElementById("password").value;
-  
-      // Create a JSON object with the login credentials
-      var credentials = {
-        username: username,
-        password: password
-      };
-  
-      // Convert the credentials to a JSON string
-      var jsonData = JSON.stringify(credentials);
-  
-      // Create a new XMLHttpRequest object
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "/login");
-      xhr.setRequestHeader("Content-Type", "application/json");
-  
-      // Handle the response from the server
-      xhr.onload = function() {
-        if (xhr.status === 200) {
-          var response = JSON.parse(xhr.responseText);
-          if (response.success) {
-            // Login successful, redirect to the dashboard
-            window.location.href = "dashboard.html";
-          } else {
-            // Login failed, show an error message
-            alert("Login failed. Invalid username or password.");
-          }
-        } else {
-          // Error handling if the request fails
-          alert("Login failed. Please try again later.");
-        }
-      };
-  
-      // Send the request with the JSON data
-      xhr.send(jsonData);
+        // Get the username and password from the form
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // Create a JSON object with the login credentials
+        var credentials = {
+            username: username,
+            password: password
+        };
+
+        // Convert the credentials to a JSON string
+        var jsonData = JSON.stringify(credentials);
+
+        // Create a new XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/login");
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        // Handle the response from the server
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                // Redirect to the dashboard page
+                window.location.href = "dashboard.html";
+            } else {
+                // Error handling if the request fails
+                alert("Login failed. Please try again later.");
+            }
+        };
+
+        // Send the request with the JSON data
+        xhr.send(jsonData);
     }
   </script>
+
   
-    
 </head>
 <body>
   <header>
